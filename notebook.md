@@ -2,12 +2,6 @@ https://sites.google.com/view/ececs230kaust/lectures?authuser=0
 
 密码: ECECS230-Fall2023-XK-KAUST
 
-rainbow tables
-
-是一个precompute table for  reversing cryptographic hash functions.
-
-bell lapadula
-
 ## Week1
 
 Principles of design
@@ -21,8 +15,6 @@ Principles of design
 7. Principle of least common mechanism
 8. Principle of psychological acceptability 人容易access. 
 
-
-
 threat model
 
 ## Week2
@@ -33,6 +25,10 @@ password cracking的不同方式
 2. **dictionary ** rainbow table, 计算一些简单密码的hash之后. 
 
 ### rainbow table
+
+rainbow tables
+
+是一个precompute table for  reversing cryptographic hash functions.
 
 H运算, 根据明文计算出其哈希值
 
@@ -111,6 +107,16 @@ Collision resistence 并不是指不会有哈希碰撞，而是指没有高效�
 ## Week4
 
 sign mismatch, 数据类型不同, 就可能有问题, 比如int 是signed, 最高到 2^31 -1, 但是strlen(input) 是0到2^32-1
+
+Types of unintentional flaws
+
+• Errors
+ • Integer overflows
+ • Buffer overflows
+ • Format string vulnerabilities • Incomplete mediation
+ • TOCTTOU errors
+
+
 
 ### program  security
 

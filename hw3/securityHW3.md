@@ -2,10 +2,6 @@
 
 We can use `pie` to switch one on and one off
 
-
-
-
-
 #### Problem2
 
 Two additional bufferoverflow countermeasures are the stack guard protection and the nonexecutable stack scheme. Why are these schemes effective against bufferoverflows and how can they be disabled? Explain.

@@ -150,6 +150,8 @@ authentic. HMAC 和数字签名
 
 在函数stack, 你自己输入内存地址, 程序就会crash.
 
+PPT的图,是上面内存地址大, 下面内存地址小, 所以返回地址是在 buffer 后面. 
+
 怎么知道return address在哪里?
 
   repeat the address that we want the function to return to LOTS of times.  

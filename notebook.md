@@ -34,6 +34,10 @@ H运算, 根据明文计算出其哈希值
 
 R运算, 比如截取`H`[函数值](https://www.zhihu.com/search?q=函数值&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"article"%2C"sourceId"%3A"105578739"})的前**8**个字符.
 
+优点:  
+
+缺点: tradeoff  time vs. space 
+
 #### 破解方法
 
 hash 值, 我们第一次使用`R`函数对其进行运算，得到了`Y=R(X)`； 
@@ -75,6 +79,8 @@ Caesar cipher: 很容易破解,
 block ciphers , 分成block , 每块加密. 
 
 AES, Advanced Encryption Standard , DES,非常难暴力破解
+
+CBC 比  ECB 的优点
 
 #### 非对称加密
 
@@ -178,3 +184,5 @@ NOPS = EGG- SHELLCODE-ADDRESS  = 108-20-4 = 84
 1. 换成java 可以内置 all bounds checking
 1. Memory: Non-executable stack
 1. OS: Stack (and sometimes code, heap, libraries) at random virtual addresses for each process
+
+找返回地址,  2bytes, 有一个00000000, 地址在这个的后面.  

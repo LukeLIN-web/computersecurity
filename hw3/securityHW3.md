@@ -1,6 +1,10 @@
 #### Problem1
 
-We can use `pie` to switch one on and one off
+```
+echo 1 | sudo tee /proc/sys/kernel/randomize_va_space
+```
+
+Conservative randomization. Shared libraries, stack, `mmap()`, VDSO  are randomized. Heap not randomized
 
 #### Problem2
 

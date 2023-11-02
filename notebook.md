@@ -186,3 +186,28 @@ NOPS = EGG- SHELLCODE-ADDRESS  = 108-20-4 = 84
 1. OS: Stack (and sometimes code, heap, libraries) at random virtual addresses for each process
 
 找返回地址,  2bytes, 有一个00000000, 地址在这个的后面.  
+
+## AES的步骤
+
+1) Take 128-bit input n for AES scrambling
+2) Generate a key, say 128-bit, k
+3) Define a constant 2048-bit (256-bytes) table S
+4) Define a constant 2048-bit table S’
+
+5) S and S’ are expanded into four 8192 bits (1024 bytes) tables: T0, T1, T2, T3. These tables are defined by the figure below:
+
+6) AES uses two 128-bit (16-byte) auxiliary arrays, x and y
+7) Array x is initialized to k
+8) Array x is chunked into 4 4-byte arrays: x0, x1, x2, x3
+9) Compute Array e as = (S[x3[1]]⊕1, S[x3[2]], S[x3[3]], S[x3[0]]
+10) Array y = (y0, y1, y2, y3) is then modified as follows:
+11)  AES again modifies Array x with ⊕2 this time
+12)  On the 10th round, because we have a 128-bit key, Array y is modified with (S[], S[], S[], S[]) because there is no mixing.
+
+
+
+
+
+#### 网络侧信道攻击
+
+根据来回的时间,  得知加密需要的时间,可以拟合函数, 来推测发送的可能是哪些bit. 

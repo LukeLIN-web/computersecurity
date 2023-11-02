@@ -56,7 +56,7 @@ void processdata(void)
             cpos[i] = i;
             for (j = 0;j < 256;++j) {
                 c[i] += t[b][j] * u[b][i ^ j]; z = tdev[b][j] * u[b][i ^ j]; v[i] += z * z;
-                z = t[b][j] * udev[b][i ^ j]; v[i] += z * z;
+                z = t[b][j] * udev[b][i ^ j]; v[i] += z * z; //  xor , deviation .
             } }
         qsort(cpos,256,sizeof(int),cposcmp);
         numok = 0;

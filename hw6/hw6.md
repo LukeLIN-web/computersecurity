@@ -1,28 +1,13 @@
-# computersecurity
+## Report
 
-您需要找出电影中不现实的计算机安全方面。对于这些部分，您需要简要解释哪些地方是不现实的。还要列出他们如何才能在保持电影流畅的同时使其更加现实--这可能是不可能做到的，尤其是如果一个重要的情节点取决于这些 "不现实之处"。如果有很多这样的问题，那么快速列出所有问题，并解释最严重的问题。理想情况下，这将是散文式的，但如果您有一个很长的列表，则可以用列表的形式（但仅限于 "快速 "列出的错误）。 可以去豆瓣找影评 https://movie.douban.com/subject/1401535//
+I pledge, on my honor as a student, that I really watched the movie in its entirety, within the time period prior to the assignment being due.
 
-不超过500词.
-
-https://xiaobaotv.net/index.php/vod/play/id/14251/sid/1/nid/4.html
-
-破坏网络系统的全面性和速度：虽然可能存在针对特定系统的网络攻击，但同时对交通、金融和民生系统进行如此广泛且高效的破坏，在现实中是极其困难的。这些系统通常有复杂的安全措施，不太可能被单个团体或个人在短时间内同时攻破。
-
-追踪和定位黑客的能力：在剧情中，FBI能够迅速找到并确定具有进行这类攻击能力的黑客。实际上，高技能黑客通常会使用各种匿名技术和复杂的网络来隐藏自己的身份和位置，使得他们很难被迅速追踪和定位。
-
-与黑客合作后将其杀害：这种做法在现实中不太可行，因为黑客社区通常具有一定的凝聚力和信息共享机制，这样的行为很快就会被揭露和抵制，从而对犯罪团伙构成更大的风险。
-
-控制和瘫痪整个城市的交通和金融系统：现实中的城市基础设施系统具备高度的冗余和安全措施。要完全控制或瘫痪一个大城市的交通和金融系统，需要克服极其复杂的技术障碍，几乎是不可能的。
-
-发电厂的破坏和瓦斯释放：真实世界中的发电厂都有严密的安全措施，包括物理和网络安全。远程释放瓦斯或引发大规模破坏是非常不现实的。
-
-控制军用战机进行攻击：现实中，军用战机的控制系统具有高度的安全性，不可能被远程黑客所控制。
-
-#### Report
-
-I pledge, on your honor as a student, that you really watched themovie in its entirety, within the time period prior to the assignment being due.
-
-
-
-
+1. When a computer freezes, one generally doesn't press the delete key. - **Changing** it to the enter key would be more accurate. Or 'ls', which are the keys a programmer would subconsciously press when stuck. 'ls' might not be understood by the general audience, so changing it to the enter key is better.
+2. Infiltrating a financial system is not an easy task. In reality, city infrastructure systems have high levels of redundancy and security measures. To completely control or paralyze a major city's traffic and financial systems, one would need to overcome extremely complex technical obstacles, which is nearly impossible. - This can't be changed; it's the setting.
+3. It's not possible for them to monitor all radio signals and instantly recognize keywords through voice recognition to find the protagonist. - This can't be changed; it's the setting.
+4. At 57 minutes, it's impossible for the entire East Coast's power to be shut down by a single switch. This goes against safety principles. The destruction of power plants and the release of gas: In the real world, power plants have strict safety measures, including physical security. Remotely releasing gas or causing large-scale destruction is highly unrealistic. - This can't be changed; it's the setting.
+5. At one hour and thirteen minutes, in the power center of the East, there is a closed-circuit computer. On this closed-circuit computer, the protagonist should not be able to directly reverse-hack the enemy's computer or implant advertisements. Moreover, implanting advertisements is not that quick. - To make it more reasonable, it should be done using the **protagonist's own computer**, which he has already prepared with various cyber bomb invasion software.
+6. When making a phone call, one can't just press a button to start tracking a remote connection, or even directly reverse-call a camera. - This can't be changed; it's the setting.
+7. The character known as the 'Mage', who is a tech master, is unlikely to be easily found by his IP address after hacking in. In reality, highly skilled hackers often use various anonymity techniques and complex networks to hide their identity and location, making them hard to quickly track and locate. - This can't be changed; it's the setting.
+8. At 1 hour and 52 minutes, hacking into a fighter jet is shown, but forging a voice is not that quick. The pilot should be able to recognize that the voice of the command center has changed.  - - This can't be changed; it's the setting.
 

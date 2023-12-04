@@ -195,10 +195,6 @@ NOPS = EGG- SHELLCODE-ADDRESS  = 108-20-4 = 84
 11)  AES again modifies Array x with ⊕2 this time
 12)  On the 10th round, because we have a 128-bit key, Array y is modified with (S[], S[], S[], S[]) because there is no mixing.
 
-
-
-
-
 #### 网络侧信道攻击
 
 根据来回的时间,  得知加密需要的时间,可以拟合函数, 来推测发送的可能是哪些bit. 
@@ -210,6 +206,101 @@ nmap可以扫描端口
 Metasploit 是一个强大且全面的开源渗透测试框架。
 
 distccd 是存在漏洞的 一个软件。 
+
+## week6
+
+Cross-Site Request Forgery csrf
+
+XSS vs. CSRF, Do not confuse the two:
+
+- XSS exploits the trust a client browser has in data sent from the legitimate website , So the attacker tries to control what the website sends to the client browser
+
+• CSRF exploits the trust a legitimate website has in data sent from the client browser,  So the attacker tries to control what the client browser sends to the website 控制发给网站的内容.  比如visa支付
+
+
+
+
+
+## week8
+
+#### memory protection机制
+
+Memory management unit (MMU) generates exception if something is wrong with virtual address or associated request
+
+• OS maintains mapping tables used by MMU and deals with raised exceptions
+
+
+
+#### military security model 
+
+通过 Bell–LaPadula，用户只能在自己的安全级别或以上创建内容（即秘密研究人员可以创建秘密或绝密文件，但不得创建公共文件；不得记下）。相反，用户只能查看等于或低于其自己的安全级别的内容（即秘密研究人员可以查看公共或秘密文件，但不能查看绝密文件；无法阅读）。
+
+
+
+
+
+
+
+## week11
+
+
+SGX（Software Guard Extensions）和TrustZone是两种安全技术.
+
+1. SGX（Software Guard Extensions）：
+   - SGX是由英特尔（Intel）开发的硬件安全扩展技术，旨在保护应用程序的代码和数据免受物理攻击和恶意软件的威胁。
+   - SGX通过创建受信任的执行环境（被称为Enclaves）来实现隔离。Enclaves是一种受硬件保护的内存区域，其中的代码和数据对操作系统和其他应用程序是不可见的。
+2. TrustZone：
+   - TrustZone是一种硬件和软件协同工作的安全技术，广泛用于ARM架构的处理器中，包括许多移动设备和嵌入式系统。
+   - TrustZone通过将处理器分为两个隔离的世界（安全世界和普通世界）来实现隔离。安全世界是一个受信任的执行环境，可以运行受保护的代码和处理敏感数据。
+   - TrustZone可用于安全启动、数字版权管理、安全存储、身份验证等多种用途，以增强设备的安全性和可信度。
+
+总的来说，SGX和TrustZone都是硬件级别的安全技术，用于隔离和保护敏感数据和代码。SGX是由英特尔开发，主要用于x86架构的处理器，而TrustZone主要用于ARM架构的处理器。这些技术有助于提高计算设备的安全性，防止恶意攻击和数据泄漏。
+
+
+
+
+
+## week13
+
+Summary - PUF
+
+- ▪  A PUF is a digital fingerprint of a hardware device
+
+- ▪  PUF relies on process variations to define its challenge response behavior and it
+
+  cannot be cloned physically
+
+- ▪  PUF can be attacked by mathematical modeling
+
+- ▪  Secure lightweight strong PUF research is still an open problem
+
+- ▪  PUF designs can be based on well known computational hardness assumptions
+
+- ▪  Interfaces need to be considered and designed together with PUFs for various applications
+
+- ▪  ML Attacks, Software Simulators and Hardware Implementations of Arbiter PUF, XOR APUF, IPUF are available at https://github.com/scluconn/DA_PUF_Library
+
+
+
+Weak PUFs vs Strong PUFs
+
+- ▪  If the challenge space of a PUF is limited (not exponentially large with the physical size of the PUF), then it is a weak PUF
+
+- ▪  Otherwise, it is a strong PUF
+
+- ▪  Why does this matter?
+
+   The CRPs of a weak PUFs can be exhaustively read out by an attacker, then the PUF has no secret anymore.
+
+   Weak PUF alone is not appropriate for authentication. We have to use a strong PUF
+
+- ▪  Weak PUFs: SRAM PUF (power-up states), DRAM PUF (data retention time), Ring
+
+  Oscillator PUF (circuit delay, oscillating frequency)
+
+- ▪  Strong PUFs: arbiter PUF (circuit delay), XOR arbiter PUF, interpose PUF
+
+- ▪  Convert a weak PUF to a strong PUF: AESWeakPUF(C)
 
 
 
@@ -360,13 +451,23 @@ If  > sizeof(buffer)  printf ( error)
 
 ACL 就是列出,  file F,  alice能干嘛, reem能干嘛. 
 
-capability list . 列出 ali. 
+capability list . 列出 ali. 可以对 file F read,
 
 15
 
-military security 
+military security model,在 week8 -b os  106页.
 
-16 17 
+a 是可以同等级读. 
+
+b 不行, 不能向上读. 
+
+16 
+
+怎么防护 csrf ?
+
+- 生成 unique token, 包含在request中,  server 检查 verify token.  reject invaded request.
+
+17 
 
 期中后面第一周, CSRF 
 
@@ -384,7 +485,23 @@ strong vs. weak puf 不可复制函数. physical unclonable function.
 
 有两种tee.    sgx,  trustzone
 
+Weak PUFs vs Strong PUFs
 
+- 弱PUF的挑战空间有限，挑战的可能性数量相对较小，与PUF的物理大小不呈指数关系。换句话说，挑战空间的大小受到限制。
+
+- ▪  Why does this matter?
+
+  弱PUF的挑战响应对容易受到穷举攻击，攻击者可以尝试所有可能的挑战并获取相应的响应。这意味着弱PUF的挑战响应可以被攻击者彻底读取，从而失去了秘密性。
+
+   Weak PUF alone is not appropriate for authentication. We have to use a strong PUF
+
+- ▪  Weak PUFs: SRAM PUF (power-up states), DRAM PUF (data retention time), Ring
+
+  Oscillator PUF (circuit delay, oscillating frequency)
+
+- ▪  Strong PUFs: arbiter PUF (circuit delay), XOR arbiter PUF, interpose PUF
+
+- ▪  Convert a weak PUF to a strong PUF: AESWeakPUF(C)
 
 21
 

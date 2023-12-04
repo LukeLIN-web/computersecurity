@@ -57,7 +57,6 @@ hash 值, 我们第一次使用`R`函数对其进行运算，得到了`Y=R(X)`�
 #### access control, AC list.
 
 - An Access Control List (ACL) for a resource (e.g., a file or folder) is a list of zero or more Access Control Entries (ACEs)
-- 
 
 ## Week3
 
@@ -65,8 +64,6 @@ Understand the difference between symmetric and asymmetric cryptography
 
 • Understand and use one-way hash functions
  • Cryptographically suitable pseudorandom number generation
-
-
 
 ### 加密的方法
 
@@ -80,7 +77,7 @@ block ciphers , 分成block , 每块加密.
 
 AES, Advanced Encryption Standard , DES,非常难暴力破解
 
-CBC 比  ECB 的优点
+CBC 比  ECB 的优点: 更随机,更复杂, 如果一个密文块被破坏，后续所有块的解密也会出错，这有助于检测数据篡改。
 
 #### 非对称加密
 
@@ -122,11 +119,9 @@ Types of unintentional flaws
  • Format string vulnerabilities • Incomplete mediation
  • TOCTTOU errors
 
+### 期中考
 
-
-### program  security
-
-10月3日考试, slide, 作业, 笔记可以打印, 不能带ipad和电脑.
+slide, 作业, 笔记可以打印, 不能带ipad和电脑.
 
 范围: 
 
@@ -146,8 +141,6 @@ rainbow table.
 
 authentic. HMAC 和数字签名
 
-
-
 ## Week5
 
 ### stackoverflow
@@ -160,9 +153,7 @@ PPT的图,是上面内存地址大, 下面内存地址小, 所以返回地址是
 
 怎么知道return address在哪里?
 
-  repeat the address that we want the function to return to LOTS of times.  
-
-
+repeat the address that we want the function to return to LOTS of times.  
 
 #### 本地shellcode
 
@@ -226,8 +217,176 @@ distccd 是存在漏洞的 一个软件。
 
 ## 期末考
 
-4和5是啥呀? 好像是Week3 lecture里的
+slide, 作业, 笔记可以打印, 不能带ipad和电脑.
 
-7就是非对称加密, 所以不可能. 
+1 为什么加密结果不同?  
+
+ 加密的时候有randomness, 
+
+ plain text有padding.
+
+Softame/Eurpleventat.is issues
+
+2 bob 可以怎么 问alice,  证明她是alice? 
+
+ 先 steup. Charile 给A和B   秘钥k. 
+
+bob 发了一个随机challenge 给alice. 
+
+a  对challenge 加密, R = K xor H(C) ,把R 发给B
+
+V = R xor H(C) , 所以 V =k
+
+主要就是用或非门. 
+
+3
+
+can Robert 找到另一个M3 和M4 使得 SHA256 (M3) = SHA256 (M4)?
+
+不行. 因为
+
+- Infeasible to get x, given h(x). **One-way property**
+- Given x, infeasible to find y such that h(x) = h(y). **Weak-collision resistance property**
+- Infeasible to find any pair x and y such that h(x) = h(y). **Strong- collision resistance property**
+
+找到了一个碰撞, 不代表容易找到另一个. 
+
+4 
+
+n= 3*11, e = 3 , find d 
+
+解:  n = p *q 
+
+e * d = 1 mod (p-1)(q-1)  =1  mod 20 
+
+易得 d = 7
+
+5
+
+同上, 这次n = p *q = 41 *59 , e=7
+
+解
+
+d * 7  =  1 mod 2320  如果不好计算,  写把数字带进去的式子就好
+
+d = 7 ^-1 mod 2320
+
+加密: 
+
+c = p ^e  mod n =  6^7 mod 41 *59 , 这样写就可以了. 
+
+6
+
+p = 3, q = 11 
+
+n = 33 
+
+(p-1)(q-1) = 20 
+
+找到e, 就是 7 , d = 3 . 
+
+7
+
+加密, DES加密, 可以用 AES解密吗? 
+
+非对称加密, 所以不可能. 
+
+DES是一种较旧的加密算法，使用固定的56位密钥，而AES是一种更新、更安全的加密标准，提供了128位、192.
+
+8
+
+说出  public key  比密码scheme的好处
+
+1. **增强的安全性**：公钥加密使用一对密钥——一个公钥和一个私钥。公钥用于加密数据，而私钥用于解密。由于私钥不在网络上传输，因此降低了密钥泄露的风险。
+2. **密钥分发简化**：在传统的对称加密中，密钥的安全分发是一个主要问题。公钥加密解决了这个问题，因为公钥可以公开分享，而私钥保持秘密。
+3. **数字签名**：公钥体系还允许数字签名的使用。发送者可以用私钥对消息进行签名，接收者则可以用公钥来验证签名的真实性。这在确认消息来源和完整性方面非常重要。
+4. **提高非否认性**：数字签名还提供了非否认性，即发送者不能否认他们发送了经过签名的消息。
+
+然而，值得注意的是，公钥加密通常比对称密钥加密（如密码方案）在计算上更加昂贵。因此，它们常用于小数据量的加密或用于安全地交换对称密钥，后者再用于加密大量数据。
+
+9 
+
+CBC,  EBC
 
 第九题, cec  ebc 期中考一样的
+
+10
+
+画出function stck frame for c函数
+
+```c
+int bof(char *str){
+char buffer[24];
+strcpy(buffer,str);
+return 1 ;
+}
+```
+
+```
+|  return address|
+|  str parameter|
+|  24 bytes| . 高地址是buffer[23] ,低地址是buffer[0]
+|  unused stack space|
+|heap |
+```
+
+11
+
+ASLR 怎么防止buffer overflow
+
+1. Randomizationof address,  RET位置不可预测,
+2. attack 不能确定injected payload的位置.
+3. unpredictable memory layout. 
+
+12
+
+- 指出哪里会发生buffer overflow.
+
+memcpy 
+
+- attack 发生的地方
+
+Scanf . overwriting. The stack beyond the allocated spce for buf 
+
+- 怎么避免?
+
+If  > sizeof(buffer)  printf ( error)
+
+13
+
+问题, 就是会修改foo.
+
+14
+
+ACL 就是列出,  file F,  alice能干嘛, reem能干嘛. 
+
+capability list . 列出 ali. 
+
+15
+
+military security 
+
+16 17 
+
+期中后面第一周, CSRF 
+
+18
+
+为什么ecb不安全? 
+
+19
+
+
+
+20 
+
+strong vs. weak puf 不可复制函数. physical unclonable function. 
+
+有两种tee.    sgx,  trustzone
+
+
+
+21
+
+memory protection 机制
+

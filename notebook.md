@@ -121,8 +121,6 @@ Types of unintentional flaws
 
 ### 期中考
 
-slide, 作业, 笔记可以打印, 不能带ipad和电脑.
-
 范围: 
 
 password cracking的不同方式
@@ -231,13 +229,15 @@ Memory management unit (MMU) generates exception if something is wrong with virt
 
 
 
+单user, 最简单的是 fence.
+
+
+
+
+
 #### military security model 
 
 通过 Bell–LaPadula，用户只能在自己的安全级别或以上创建内容（即秘密研究人员可以创建秘密或绝密文件，但不得创建公共文件；不得记下）。相反，用户只能查看等于或低于其自己的安全级别的内容（即秘密研究人员可以查看公共或秘密文件，但不能查看绝密文件；无法阅读）。
-
-
-
-
 
 
 
@@ -255,10 +255,6 @@ SGX（Software Guard Extensions）和TrustZone是两种安全技术.
    - TrustZone可用于安全启动、数字版权管理、安全存储、身份验证等多种用途，以增强设备的安全性和可信度。
 
 总的来说，SGX和TrustZone都是硬件级别的安全技术，用于隔离和保护敏感数据和代码。SGX是由英特尔开发，主要用于x86架构的处理器，而TrustZone主要用于ARM架构的处理器。这些技术有助于提高计算设备的安全性，防止恶意攻击和数据泄漏。
-
-
-
-
 
 ## week13
 

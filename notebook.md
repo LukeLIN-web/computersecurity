@@ -26,9 +26,10 @@ password cracking的不同方式
 
 ### rainbow table
 
-rainbow tables
+彩虹表 rainbow-tables - tangtao的文章 - 知乎
+https://zhuanlan.zhihu.com/p/105578739
 
-是一个precompute table for  reversing cryptographic hash functions.
+rainbow tables是一个precompute table for  reversing cryptographic hash functions.
 
 H运算, 根据明文计算出其哈希值
 
@@ -77,7 +78,7 @@ block ciphers , 分成block , 每块加密.
 
 AES, Advanced Encryption Standard , DES,非常难暴力破解
 
-CBC 比  ECB 的优点: 更随机,更复杂, 如果一个密文块被破坏，后续所有块的解密也会出错，这有助于检测数据篡改。
+CBC 比 ECB 的优点: 更随机,更复杂, 如果一个密文块被破坏，后续所有块的解密也会出错，这有助于检测数据篡改。
 
 #### 非对称加密
 
@@ -143,11 +144,9 @@ authentic. HMAC 和数字签名
 
 ### stackoverflow
 
-如果在调用函数时，不小心将 `返回地址` 覆盖了，那么调用完函数后，将不会跳转到原来的函数继续执行，而是跳转到覆盖后的地址执行。如下图所示
+如果在调用函数时，不小心将 `返回地址` 覆盖了，那么调用完函数后，将不会跳转到原来的函数继续执行，而是跳转到覆盖后的地址执行。
 
-在函数stack, 你自己输入内存地址, 程序就会crash.
-
-PPT的图,是上面内存地址大, 下面内存地址小, 所以返回地址是在 buffer 后面. 
+在函数stack, 你自己输入内存地址, 程序就会crash. 注意是上面内存地址大, 下面内存地址小, 所以返回地址是在 buffer 后面. 
 
 怎么知道return address在哪里?
 
@@ -167,7 +166,7 @@ NOPS = EGG- SHELLCODE-ADDRESS  = 108-20-4 = 84
 
 #### solution
 
-导致 `栈溢出攻击` 的原因就是：调用 `memcpy()`、`strcpy()` 等函数复制数据时，没有对数据的长度进行验证，从而 `返回地址` 被复制的数据覆盖了。 
+导致 栈溢出攻击 的原因就是：调用 `memcpy()`、`strcpy()` 等函数复制数据时，没有对数据的长度进行验证，从而返回地址 被复制的数据覆盖了。 
 
 1. canary , 放一个chosen number 放在buffer和重要返回地址之间. 如果这个值被修改了就有问题. 
 1. 换成java 可以内置 all bounds checking
@@ -248,7 +247,7 @@ SGX（Software Guard Extensions）和TrustZone是两种安全技术.
 
 Summary - PUF
 
-- ▪  A PUF is a digital fingerprint of a hardware device
+- A PUF is a digital fingerprint of a hardware device
 
 - ▪  PUF relies on process variations to define its challenge response behavior and it
 
@@ -256,7 +255,7 @@ Summary - PUF
 
 - ▪  PUF can be attacked by mathematical modeling
 
-- ▪  Secure lightweight strong PUF research is still an open problem
+- Secure lightweight strong PUF research is still an open problem
 
 - ▪  PUF designs can be based on well known computational hardness assumptions
 

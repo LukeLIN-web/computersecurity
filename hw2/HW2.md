@@ -6,17 +6,9 @@ HW2
 
    **Hint:** The answer will be a trivial function that you would never use as a cryptographic hash function.
 
-
-
 1. b)  Second, define a function that is collision-resistant, but not one-way.
 
    **Hint:** Assume you have a collision-resistant hash-function H. Use that to build a hash function H’ which is still collision- resistant, but not one-way.
-
-
-
-
-
-
 
 **Problem 2** (15 Points): Consider the following C code. What is the problem? Explain.
 
@@ -31,16 +23,12 @@ cout<<"The sum is: "<<sum;
 
 A: The problem is sign mismatch, two `int` type number addition may out of the range the `int` . It can cause overflow. For example, INT_MAX + 1 = INT_MIN
 
-
-
 **Problem 3** (30 Points): Simple Reverse Engineering Course.
  There’s a **Linux** binary file called **doorkeeper**, which has two password checks. Try to crack the two passwords. Show your cracking progress by screenshot step by step. To simplify the process, the debug information is reserved, and the optimization is disabled.
 
 ### problem4
 
 位加密, 第一个是0, 那么一定是 A, 第一个是1, 那么一定是D. 然后猜第二个. 
-
-
 
 #### b)  
 

